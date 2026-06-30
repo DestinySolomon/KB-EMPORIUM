@@ -50,7 +50,7 @@ export default function Home() {
         onClick={goToTop}
         className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-500 hover:scale-110 z-50 cursor-pointer ${showTopBtn ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
         style={{
-          backgroundColor: 'oklch(var(--foreground-900))',
+          backgroundColor: '#C19A6B',
           color: 'oklch(var(--background-50))',
           boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
         }}

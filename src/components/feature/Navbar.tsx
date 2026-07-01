@@ -43,13 +43,13 @@ export default function Navbar() {
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="cursor-pointer flex-shrink-0 mr-6 flex items-center gap-3"
+          className="cursor-pointer flex-shrink-0 flex items-center gap-3 min-w-0"
         >
           <img src={logoImg} alt="KB's Emporium Logo" className="h-10 md:h-12 w-auto" />
           <span
             className="font-heading text-lg md:text-xl tracking-[0.15em] whitespace-nowrap"
             style={{
-              color: scrolled ? '#4A3728' : '#C19A6B', // Deep espresso when scrolled, milky caramel/brown at top
+              color: scrolled ? '#4A3728' : '#C19A6B',
               transition: 'color 0.5s ease',
             }}
           >
@@ -58,22 +58,27 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-12 xl:gap-16 ml-auto pl-8">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className="text-sm tracking-wider whitespace-nowrap cursor-pointer transition-colors duration-300 hover:opacity-70"
-              style={{
-                color: scrolled
-                  ? 'oklch(var(--foreground-700))'
-                  : 'oklch(0.96 0.015 85 / 0.85)',
-              }}
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="hidden md:flex flex-1 items-center justify-center">
+          <div className="flex items-center gap-8 lg:gap-12 xl:gap-16">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-sm tracking-wider whitespace-nowrap cursor-pointer transition-colors duration-300 hover:opacity-70"
+                style={{
+                  color: scrolled
+                    ? 'oklch(var(--foreground-700))'
+                    : 'oklch(0.96 0.015 85 / 0.85)',
+                }}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden md:flex items-center justify-end flex-shrink-0 ml-6">
           <a
             href="#contact"
             onClick={(e) => handleNavClick(e, '#contact')}
@@ -93,7 +98,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden w-8 h-8 flex items-center justify-center cursor-pointer"
+          className="md:hidden ml-auto w-8 h-8 flex items-center justify-center cursor-pointer flex-shrink-0"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
